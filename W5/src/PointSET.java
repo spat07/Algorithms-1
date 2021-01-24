@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.SET;
 import edu.princeton.cs.algs4.Stack;
@@ -9,7 +10,7 @@ public class PointSET {
    
    public PointSET()                               // construct an empty set of points 
    {
-      System.out.println("construct point\n");
+      //System.out.println("construct point\n");
       pset = new SET<Point2D>();
    };
    public boolean isEmpty()                      // is the set empty? 
@@ -70,22 +71,31 @@ public class PointSET {
        PointSET ps1 = new PointSET();
        StdDraw.setPenRadius(0.02);
        
-       Point2D p1 = new Point2D(0.25, 0.5);
-       ps1.insert(p1);
+//       Point2D p1 = new Point2D(0.25, 0.5);
+//       ps1.insert(p1);
+//       
+//       Point2D p2 = new Point2D(0.25, 1.0);
+//       ps1.insert(p2);
+//       
+//       Point2D p3 = new Point2D(0.5, 0.75);
+//       ps1.insert(p3);
+//       
+//       Point2D p4 = new Point2D(0.5, 0.25);
+//       ps1.insert(p4);
        
-       Point2D p2 = new Point2D(0.25, 1.0);
-       ps1.insert(p2);
-       
-       Point2D p3 = new Point2D(0.5, 0.75);
-       ps1.insert(p3);
-       
-       Point2D p4 = new Point2D(0.5, 0.25);
-       ps1.insert(p4);
+       String filename = args[0];
+       In in = new In(filename);
+       while (!in.isEmpty()) {
+           double x = in.readDouble();
+           double y = in.readDouble();
+           Point2D p = new Point2D(x, y);
+           ps1.insert(p);
+       }
        
        System.out.printf("%d points in the set\n", ps1.size());
        ps1.draw();
        
-       Point2D op1 = new Point2D(0.75, 0.75);
+       Point2D op1 = new Point2D(0.5, 0.7);
        StdDraw.setPenColor(StdDraw.RED);
        op1.draw();
        
